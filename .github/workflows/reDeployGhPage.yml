@@ -1,10 +1,10 @@
 
-name: Remote Dispatch Action Responder
+name: Remote repo data updated
 
 on: [repository_dispatch]
 
 jobs:
-  ping-pong:
+  Re-deploy-GH-page:
     runs-on: ubuntu-latest
     steps:
       - name: Event Information

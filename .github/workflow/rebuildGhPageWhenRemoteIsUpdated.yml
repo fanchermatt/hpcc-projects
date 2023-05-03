@@ -1,10 +1,6 @@
 name: Respond to remote ping
 
-# on: [repository_dispatch]
-on:
-  repository_dispatch:
-    branches:
-      - yadhap/cicd
+on: [repository_dispatch]
 
 jobs:
   ping-pong:

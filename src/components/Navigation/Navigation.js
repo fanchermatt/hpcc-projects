@@ -9,7 +9,7 @@ const Navigation = () => {
           <a href="/learnECL">Learn ECL</a>
         </li>
         <li>
-          <a href="/Products">Products</a>
+          <a href="/products">Products</a>
         </li>
         <li>
           <a href="/about">About Us</a>

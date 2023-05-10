@@ -1,47 +1,62 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+require("dotenv").config();
 
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
 module.exports = {
   siteMetadata: {
     title: `HPCC Projects`,
+  },
+  plugins: [
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-mdx",
+    "gatsby-transformer-remark",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+
+    // This plugin allows users to add  site to their home screen on most mobile browsers - MAY NOT BE NECESSARY
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/icon.png",
+      },
     },
-  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-image", "gatsby-plugin-sitemap", 'gatsby-plugin-dark-mode', {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
-    }
-  },{
-    resolve: `gatsby-source-git`,
-    options: {
-      name: `projects`,
 
-      //specify branch to pull data from
-      branch: `dev`,
-      //if your repository is public and doesn't need an access token
-      remote: process.env.GATSBY_SOURCE_GIT_URL,
+    // {
+    //   "name": "gatsby-transformer-remark",
+    //   "options": {
+    //     "name": "md-files-for-projects",
+    //     "contentPath": "content/projects,blog"
+    //   }
+    // },
 
-      //if your repository is not public and you need a token
-      //remote: `https://myuser:${process.env.GITHUB_TOKEN}@github.com/fanchermatt/data/`,
-    
-      //Clone the repository into a local easy access one for quick pushes and updates
-      //local: "data/",
-
-      // Only import the docs folder from a codebase.
-      //patterns: `docs/**`
-
-      // Multiple patterns and negation supported. See https://github.com/mrmlnc/fast-glob
-      //patterns: [`*`, `!*.md`]
-    }
-  }, "gatsby-plugin-mdx", "gatsby-transformer-remark", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
+    // Clone repo into content directory
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `projects`,
+        remote: process.env.GATSBY_SOURCE_GIT_URL,
+        branch: `dev`,
+        local: `${__dirname}/content/projects`,
+      },
     },
-    __key: "images"
-  },]
+
+    // Give different name to ech instance if reading file from different locations
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "projects",
+        path: `${__dirname}/content/projects`,
+        read: true,
+      },
+      __key: "projects",
+    },
+  ],
 };

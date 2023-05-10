@@ -1,10 +1,5 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+require("dotenv").config();
 
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
 module.exports = {
   siteMetadata: {
     title: `HPCC Projects`,
@@ -13,46 +8,55 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-mdx",
+    "gatsby-transformer-remark",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+
+    // This plugin allows users to add  site to their home screen on most mobile browsers - MAY NOT BE NECESSARY
     {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
       },
     },
+
+    // {
+    //   "name": "gatsby-transformer-remark",
+    //   "options": {
+    //     "name": "md-files-for-projects",
+    //     "contentPath": "content/projects,blog"
+    //   }
+    // },
+
+    // Clone repo into content directory
     {
       resolve: `gatsby-source-git`,
       options: {
         name: `projects`,
-
-        //specify branch to pull data from
-        branch: `dev`,
-        //if your repository is public and doesn't need an access token
         remote: process.env.GATSBY_SOURCE_GIT_URL,
-
-        //if your repository is not public and you need a token
-        //remote: `https://myuser:${process.env.GITHUB_TOKEN}@github.com/fanchermatt/data/`,
-
-        //Clone the repository into a local easy access one for quick pushes and updates
-        local: "content/",
-
-        // Only import the docs folder from a codebase.
-        patterns: `projects/**`,
-
-        // Multiple patterns and negation supported. See https://github.com/mrmlnc/fast-glob
-        //patterns: [`*`, `!*.md`]
+        branch: `dev`,
+        local: `${__dirname}/content/projects`,
       },
     },
-    "gatsby-plugin-mdx",
-    "gatsby-transformer-remark",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+
+    // Give different name to ech instance if reading file from different locations
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: `projects`,
-        path: `./content/projects`,
+        name: "images",
+        path: "./src/images/",
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "projects",
+        path: `${__dirname}/content/projects`,
+        read: true,
+      },
+      __key: "projects",
     },
   ],
 };

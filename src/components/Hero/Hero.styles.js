@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  margin-right: 1rem;
-  display: flex;
-  flex-direction: row;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;

@@ -10,9 +10,9 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 6.4rem;
   padding: 0.5rem;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--inner-background);
   z-index: 8;
-  border-bottom: 1px solid rgb(237, 238, 238);
+  border-bottom: 1px solid var(--border);
 `;
 
 export const Left = styled.div`
@@ -23,6 +23,7 @@ export const Left = styled.div`
   img {
     height: 100%;
     width: auto;
+    padding: 0.5rem;
   }
 `;
 
@@ -30,4 +31,5 @@ export const Right = styled.div`
   display: flex;
   flexdirection: row;
   justify-content: flex-end;
+  align-items: center;
 `;

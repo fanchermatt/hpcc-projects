@@ -2,22 +2,19 @@ import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 
-function ProjectDetails({ data }) {
+function learnECLDetails({ data }) {
+  console.log(data);
   const { html } = data.markdownRemark;
-  const { image_description, title, banner_image } =
-    data.markdownRemark.frontmatter;
+
   return (
     <Layout>
       <div
         style={{
           padding: "25px",
           border: "1px solid var(--border)",
-          padding: "10px",
         }}
       >
-        <h1>{title}</h1>
         <div>
-          <img src={banner_image} alt={image_description} />
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </div>
       </div>
@@ -25,12 +22,13 @@ function ProjectDetails({ data }) {
   );
 }
 
-export default ProjectDetails;
+export default learnECLDetails;
 
 export const query = graphql`
-  query ProjectDetail($slug: String) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+  query learnECLDetail($absolutePath: String) {
+    markdownRemark(fileAbsolutePath: { eq: $absolutePath }) {
       html
+      rawMarkdownBody
       frontmatter {
         image
         image_description

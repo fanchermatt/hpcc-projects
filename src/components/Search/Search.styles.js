@@ -4,21 +4,37 @@ export const Wrapper = styled.div`
   margin-right: 2rem;
   border-radius: 0.8rem;
 
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid rgb(237, 238, 238);
-
   input {
-    appearance: none;
-    outline-offset: 0px;
-    flex: 1 1 0%;
-    border: none;
-    outline: none;
-    width: 20rem;
+    color: var(--text);
+  }
+  input::placeholder {
+    color: var(--text);
+  }
+
+  .ant-input-group-wrapper {
+    background-color: var(--background);
+    color: var(--text);
+    border-color: var(--border);
+  }
+  .ant-input-search {
+    background-color: var(--inner-background);
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .ant-input-affix-wrapper {
+    background-color: var(--background);
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .anticon-search {
+    background-color: var(--background);
+    color: var(--text);
+    border-color: var(--border);
   }
 
   svg {
-    margin-top: 1rem;
-    margin-right: 1rem;
+    color: var(--text);
   }
 `;

@@ -8,16 +8,17 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 6.4rem;
   padding: 0.5rem;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--inner-background);
   z-index: 8;
-  border-top: 1px solid rgb(237, 238, 238);
+  border-top: 1px solid var(--border);
 `;
 
 export const Left = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
+  padding-left: 1rem;
+  padding-right: 1rem;
   img {
     height: 100%;
     width: auto;
@@ -28,4 +29,6 @@ export const Right = styled.div`
   display: flex;
   flexdirection: row;
   justify-content: flex-end;
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;

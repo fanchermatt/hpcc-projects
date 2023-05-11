@@ -34,7 +34,7 @@ module.exports = {
       resolve: `gatsby-source-git`,
       options: {
         name: `projects`,
-        remote: process.env.GATSBY_SOURCE_GIT_URL,
+        remote: "https://github.com/fanchermatt/data",
         branch: `dev`,
         local: `${__dirname}/content/projects`,
       },
@@ -44,16 +44,16 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: "learnECL",
+        path: `${__dirname}/content/projects/Learn-ECL`,
       },
-      __key: "images",
+      __key: "learnECL",
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "projects",
-        path: `${__dirname}/content/projects`,
+        path: `${__dirname}/content/projects/projects`,
         read: true,
       },
       __key: "projects",

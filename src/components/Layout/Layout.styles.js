@@ -12,6 +12,7 @@ export const Primary = styled.main`
   margin: 0 auto;
   margin-top: 8rem;
   background-color: var(--background);
+  min-height: calc(100vh - 145px);
 `;
 
 export const DarkGlobalStyles = createGlobalStyle`
@@ -88,6 +89,8 @@ html {
 body{
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: var(--background);
+  padding:0;
+  margin:0;
 }
 
 
@@ -239,8 +242,12 @@ html {
 }
 
 body{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: var(--background);
+  padding:0;
+  margin:0;
 }
+
 
 
   h1{

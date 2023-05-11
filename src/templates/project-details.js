@@ -2,13 +2,19 @@ import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 
-
 function ProjectDetails({ data }) {
   const { html } = data.markdownRemark;
-  const { image_description, title, banner_image } = data.markdownRemark.frontmatter;
+  const { image_description, title, banner_image } =
+    data.markdownRemark.frontmatter;
   return (
     <Layout>
-      <div style={{ padding: "25px", border: "1px solid lightgray", padding: "10px" }}>
+      <div
+        style={{
+          padding: "25px",
+          border: "1px solid var(--border)",
+          padding: "10px",
+        }}
+      >
         <h1>{title}</h1>
         <div>
           <img src={banner_image} alt={image_description} />

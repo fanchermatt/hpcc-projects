@@ -17,7 +17,8 @@ export const Left = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
+  padding-left: 1rem;
+  padding-right: 1rem;
   img {
     height: 100%;
     width: auto;
@@ -28,4 +29,6 @@ export const Right = styled.div`
   display: flex;
   flexdirection: row;
   justify-content: flex-end;
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;

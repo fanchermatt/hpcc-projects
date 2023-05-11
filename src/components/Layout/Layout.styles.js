@@ -22,7 +22,7 @@ export const DarkGlobalStyles = createGlobalStyle`
     --background: #132335;
     --inner-background:#45515e;
     --text: #f3f4f5;
-    --border: #acb2b8;
+    --border: #787d81;
     --highlight: #65a9f3;
 }
 *,

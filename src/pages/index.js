@@ -1,18 +1,9 @@
 import * as React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/layout/layout";
+import Layout from "../components/Layout/Layout";
 import Hero from "../components/Hero/Hero";
 import { Card, Col, Row } from "antd";
 
-const IndexPage = (data) => {
-  console.log(data);
-
-  const content = data.data.allFile.edges.map((file) => (
-    <div>
-      <p>Name:{file.node.name}</p>
-    </div>
-  ));
-
+const IndexPage = () => {
   return (
     <Layout>
       <Hero />
@@ -69,22 +60,3 @@ const IndexPage = (data) => {
 };
 
 export default IndexPage;
-
-export const query = graphql`
-  query MyQuery {
-    allFile {
-      edges {
-        node {
-          id
-          relativePath
-          dir
-          dev
-          name
-          internal {
-            content
-          }
-        }
-      }
-    }
-  }
-`;

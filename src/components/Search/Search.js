@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Wrapper } from "./search.styles";
 import { Input } from "antd";
-import { globalContext } from "../ContextProvider/ContextProvider";
+// import { globalContext } from "../ContextProvider/ContextProvider";
 
 const Search = () => {
   const { Search } = Input;

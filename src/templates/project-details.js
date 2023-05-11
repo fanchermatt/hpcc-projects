@@ -8,7 +8,7 @@ function ProjectDetails({ data }) {
   const { image_description, title, banner_image } = data.markdownRemark.frontmatter;
   return (
     <Layout>
-      <div style={{ padding: "25px", border: "1px solid lightgray", padding: "10px" }}>
+      <div style={{ padding: "25px", border: "1px solid lightgray"}}>
         <h1>{title}</h1>
         <div>
           <img src={banner_image} alt={image_description} />

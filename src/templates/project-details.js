@@ -1,21 +1,21 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../components/Layout/Layout";
-
+import { Card } from "antd";
+import AppLayout from "../components/Layout";
 
 function ProjectDetails({ data }) {
   const { html } = data.markdownRemark;
-  const { image_description, title, banner_image } = data.markdownRemark.frontmatter;
+  const { image, title } = data.markdownRemark.frontmatter;
   return (
-    <Layout>
-      <div style={{ padding: "25px", border: "1px solid lightgray"}}>
+    <AppLayout>
+      <Card>
         <h1>{title}</h1>
         <div>
-          <img src={banner_image} alt={image_description} />
+          <img src={image} alt={title} />
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </div>
-      </div>
-    </Layout>
+      </Card>
+    </AppLayout>
   );
 }
 
@@ -31,7 +31,6 @@ export const query = graphql`
         project_description
         slug
         title
-        banner_image
       }
     }
   }

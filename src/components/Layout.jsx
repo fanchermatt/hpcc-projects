@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { theme, Layout, ConfigProvider } from "antd";
 import SiteHeader from "./Header";
 import SiteFooter from "./Footer";
@@ -9,7 +9,9 @@ const { defaultAlgorithm, darkAlgorithm } = theme;
 const { Content } = Layout;
 
 function AppLayout({ children }) {
-  const [appTheme, setAppTheme] = useContext(globalContext);
+  // const [appTheme, setAppTheme] = useContext(globalContext);
+  const [appTheme, setAppTheme] = useState("light");
+
   return (
     <ConfigProvider
       theme={{
